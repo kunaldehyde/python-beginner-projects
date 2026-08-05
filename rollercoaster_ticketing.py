@@ -2,39 +2,33 @@
 #People aged 45-55 to be given a free ride due to midlife crises.
 #Classify age into multiple groups
 
-print("Welcome to the roller coaster ride booking.")
-height = int(input("Please enter your height: "))
-bill = 0
+print("Welcome to the roller coaster ticketing center.")
+height = int(input("Height in cms: "))
+bill=0
 
 if height < 120:
-    print("Sorry! You cannot ride the roller coaster.")
+    print("Sorry! You cannot ride.")
 else:
-    age = int(input("Please enter your age: "))
+    age = int(input("Age: "))
     if age <= 10:
-        print("Sorry! You are not old enough to ride the roller coaster.")
+        print("Sorry! You cannot ride.")
     else:
         if age <= 18:
-            bill = 5
+            bill += 5
         elif age < 45:
-            bill = 10
+            bill += 10
         elif age <= 55:
-            print("You get a free ride. Everything will be fine.")
+            print("You get a free ride.") #Free ride due to midlife crises
         else:
-            bill = 7
+            bill += 7 #discounted rate for sr citizens
 
-        photo = input("Would you like a photograph as well? Type Yes or No: ").lower()
-        if photo == "yes":
+        photo = input("Photo? Y or N: ").lower()
+        if photo == "y":
             bill += 2
-        elif photo == "no":
-            pass
-        else:
-            print("Invalid response. Please try again using Yes or No.")
-            exit()
+        elif photo != "n":
+            raise SystemExit("Invalid input")
 
-        if bill == 0:
-            print("You don't have to pay anything.")
-        else:
-            print(f"Your total bill is ${bill}.")
+        print(f"Your ticket price is ${bill}. Thank you.")
 
 
 
